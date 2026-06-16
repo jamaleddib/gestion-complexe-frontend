@@ -35,7 +35,7 @@ export default function Reservations() {
     <>
         <Navbar />
         <div className="page-container">
-            <h2 className="mb-4">📋 Gestion des Réservations</h2>
+            <h2 className="mb-4"> Gestion des Réservations</h2>
 
             {loading ? (
                 <div className="loading-wrapper">
@@ -54,6 +54,7 @@ export default function Reservations() {
                                 <th>Heure fin</th>
                                 <th>Statut</th>
                                 <th>Paiement</th>
+                                <th> Type de Paiement</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -74,14 +75,16 @@ export default function Reservations() {
                                             <span className="badge bg-secondary">Non payé</span>
                                         )}
                                     </td>
+                                    <td>{r.paiement === 'paye' ? (<span className="badge bg-success"> Payé ({r.mode_paiement === 'carte' ? ' Carte' : ' Espèces'})</span> ) : (<span className="badge bg-secondary">Non payé</span>)}
+                                    </td>
                                     <td>
                                         {r.statut === 'en_attente' && (
                                             <>
                                                 <button className="btn btn-sm btn-success me-2" onClick={() => updateStatut(r.id, 'acceptee')}>
-                                                    ✓ Accepter
+                                                    Accepter
                                                 </button>
                                                 <button className="btn btn-sm btn-danger" onClick={() => updateStatut(r.id, 'refusee')}>
-                                                    ✕ Refuser
+                                                    Refuser
                                                 </button>
                                             </>
                                         )}
@@ -92,7 +95,7 @@ export default function Reservations() {
                                 <tr>
                                     <td colSpan="9">
                                         <div className="empty-state">
-                                            <div className="icon">📭</div>
+                                            <div className="icon"></div>
                                             <p>Aucune réservation</p>
                                         </div>
                                     </td>

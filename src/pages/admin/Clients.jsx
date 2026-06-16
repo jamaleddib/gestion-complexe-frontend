@@ -42,7 +42,7 @@ export default function Clients() {
     <>
         <Navbar />
         <div className="page-container">
-            <h2 className="mb-4">👥 Gestion des Clients</h2>
+            <h2 className="mb-4"> Gestion des Clients</h2>
 
             {loading ? (
                 <div className="loading-wrapper">

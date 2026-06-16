@@ -1,6 +1,7 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+
 export default function Navbar() {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark px-4">
             <Link className="navbar-brand" to={user?.role === 'admin' ? '/admin' : '/dashboard'}>
-                🏟️ Complexe Sportif
+                 Complexe Sportif
             </Link>
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav me-auto">
@@ -37,8 +38,8 @@ export default function Navbar() {
                 <span className="navbar-text text-white-50 me-3">
                     👤 {user?.name} {user?.prenom}
                 </span>
-                <button className="btn btn-outline-light btn-sm" onClick={handleLogout}>
-                    🚪 Déconnexion
+                <button className="btn btn-outline-danger btn-sm" onClick={handleLogout}>
+                     Déconnexion
                 </button>
             </div>
         </nav>

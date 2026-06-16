@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -27,7 +28,7 @@ export default function Login() {
     return (
     <div className="auth-wrapper">
         <div className="auth-card">
-            <h3 className="text-center">🏟️ Connexion</h3>
+            <h3 className="text-center">Connexion</h3>
             {error && <div className="alert alert-danger">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">

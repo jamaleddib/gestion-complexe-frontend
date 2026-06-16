@@ -52,7 +52,7 @@ export default function Terrains() {
     <>
         <Navbar />
         <div className="page-container">
-            <h2 className="mb-4">🏟️ Gestion des Terrains</h2>
+            <h2 className="mb-4">Gestion des Terrains</h2>
 
             <form onSubmit={handleSubmit} className="form-card mb-4">
                 <div className="row g-2">
