@@ -99,7 +99,7 @@ export default function Dashboard() {
 
         setCarteLoading(true);
 
-        // Simulation d'un délai de traitement bancaire
+        
         setTimeout(async () => {
             try {
                 await api.post(`/reservations/${modalReservation.id}/payer`, {
@@ -192,6 +192,7 @@ export default function Dashboard() {
                                     <th>Heure fin</th>
                                     <th>Statut</th>
                                     <th>Paiement</th>
+                                    <th>Temps restant</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -249,7 +250,6 @@ export default function Dashboard() {
                 )}
             </div>
 
-            {/* ===== MODAL PAIEMENT ===== */}
             {modalReservation && (
                 <>
                     <div className="modal-backdrop fade show"></div>
@@ -306,7 +306,6 @@ export default function Dashboard() {
                                     </>
                                 )}
 
-                                {/* ===== ÉTAPE 2 : FORMULAIRE CARTE ===== */}
                                 {etape === 'carte' && (
                                     <>
                                         <div className="modal-header border-0" style={{ background: 'linear-gradient(135deg, #2563eb, #1e40af)' }}>
@@ -446,7 +445,6 @@ export default function Dashboard() {
                                     </>
                                 )}
 
-                                {/* ===== ÉTAPE 3 : SUCCÈS ===== */}
                                 {etape === 'succes' && (
                                     <div className="modal-body text-center p-5">
                                         <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>✅</div>

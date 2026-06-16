@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { AuthProvider} from './context/AuthContext';
 import { PrivateRoute, AdminRoute } from './components/PrivateRoute';
 
 import Login from './pages/Login';
@@ -10,18 +10,12 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import Terrains from './pages/admin/Terrains';
 import Reservations from './pages/admin/Reservations';
 import Clients from './pages/admin/Clients';
-
-function HomeRedirect() {
-    const { user, loading } = useAuth();
-    if (loading) return null;
-    if (!user) return <Navigate to="/login" />;
-    return <Navigate to={user.role === 'admin' ? '/admin' : '/dashboard'} />;
-}
+import LandingPage from './pages/LandingPage';
 
 function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<HomeRedirect />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
